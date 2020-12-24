@@ -2,24 +2,22 @@ server:
   port: 8082
 spring:
   application:
-    #·şÎñÃû³Æ - ·şÎñÖ®¼äÊ¹ÓÃÃû³Æ½øĞĞÍ¨Ñ¶
+    #æœåŠ¡åç§° - æœåŠ¡ä¹‹é—´ä½¿ç”¨åç§°è¿›è¡Œé€šè®¯
     name: service-object-b
 eureka:
   client:
     service-url:
-      #·şÎñÖĞĞÄ·şÎñµØÖ·
+      #æœåŠ¡ä¸­å¿ƒæœåŠ¡åœ°å€
       defaultZone: http://localhost:8080/eureka
-      #ÊÇ·ñ½«×Ô¼º×¢²áµ½·şÎñÖĞĞÄ
+      #æ˜¯å¦å°†è‡ªå·±æ³¨å†Œåˆ°æœåŠ¡ä¸­å¿ƒ
       register-with-eureka: true
-      #ÊÇ·ñĞèÒªËÑË÷·şÎñĞÅÏ¢
+      #æ˜¯å¦éœ€è¦æœç´¢æœåŠ¡ä¿¡æ¯
       fetch-registry: true
     instance:
-      #Ê¹ÓÃipµØÖ·×¢²áµ½×¢²áÖĞĞÄ
+      #ä½¿ç”¨ipåœ°å€æ³¨å†Œåˆ°æ³¨å†Œä¸­å¿ƒ
       prefer-ip-address: true
-      # ×¢²áÖĞĞÄÁĞ±íÖĞÏÔÊ¾µÄ×´Ì¬²ÎÊı
+      # æ³¨å†Œä¸­å¿ƒåˆ—è¡¨ä¸­æ˜¾ç¤ºçš„çŠ¶æ€å‚æ•°
       instance-id: ${spring.cloud.client.ip-address}:${server.port}
 ribbon:
-  #½¨Á¢Á¬½Ó³¬Ê±Ê±¼ä
-  ConnectTimeout: 5000
-  #¶ÁÈ¡×ÊÔ´³¬Ê±¼ä
-  ReadTimeout: 5000
+  ReadTimeout: 120000  #è¯·æ±‚å¤„ç†çš„è¶…æ—¶æ—¶é—´
+  ConnectTimeout: 30000  #è¯·æ±‚è¿æ¥çš„è¶…æ—¶æ—¶é—´
